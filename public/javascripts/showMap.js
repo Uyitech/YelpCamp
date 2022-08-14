@@ -4,7 +4,8 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
     center: campground.geometry.coordinates, // starting position [lng, lat]
     zoom: 7, // starting zoom
-    projection: 'globe' // display the map as a 3D globe
+    projection: 'globe', // display the map as a 3D globe
+    cooperativeGestures: true
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -15,7 +16,7 @@ new mapboxgl.Marker()
     .setPopup(
         new mapboxgl.Popup({ offset: 25 })
             .setHTML(
-                `<h3>${campground.title}</h3><p>${campground.location}</p>`
+                `<h4 class="font-weight-bold">${campground.title}</h4><p class="text-center text-muted">${campground.location}</p>`
             )
     )
     .addTo(map)
